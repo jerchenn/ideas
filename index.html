@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Big Ideas</title>
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=3">
+<link rel="icon" type="image/png" sizes="256x256" href="img/favicon-256.png?v=3">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=3">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Opening page of the lecture: causation, then quant against qual. Celadon wall, cream cabinets, rose and olive accents, pink footer. */
+:root{
+  --canvas:#CBE3DE; --canvas-lt:#D6EAE5; --canvas-dk:#BFD9D3; --pink:#E3A6AC;
+  --olive:#637040; --olive-lt:#9FB295; --rose:#A34860; --slate:#4F5D75; --blue-lt:#BFC8D3;
+  --trim:#C8A030; --trim-dk:#9A7B24; --neutral:#F0E8D8; --label-bg:#FAF4E8; --butter:#F4DBB2;
+  --ink:#2C1F14; --ink-warm:#6E5140; --rule:#D8C8A0;
+  --display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --mono:"IBM Plex Mono","Courier New",monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--canvas);background-image:linear-gradient(172deg,var(--canvas-lt) 0%,var(--canvas) 55%,var(--canvas-dk) 100%);color:var(--ink);font-family:var(--display);font-size:19px;line-height:1.5;padding-block:36px 0;padding-inline:16px;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.09;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%239A7B24' stroke-width='3'%3E%3Ccircle cx='30' cy='18' r='11'/%3E%3Ccircle cx='30' cy='42' r='11'/%3E%3Ccircle cx='18' cy='30' r='11'/%3E%3Ccircle cx='42' cy='30' r='11'/%3E%3C/g%3E%3C/svg%3E");background-size:60px 60px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;display:grid;gap:0;justify-items:center;text-align:center}
+.wrap>*{width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.1;text-wrap:balance;margin:0;text-transform:uppercase;letter-spacing:.18em;color:var(--rose)}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);letter-spacing:.26em;padding-left:.26em}
+h3{font-size:1.15rem;letter-spacing:.14em}
+p{margin:0 auto;max-width:62ch}
+.aux{font-size:.95rem;color:var(--ink-warm);font-style:italic}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--trim);color:var(--rose);padding:3px 10px;border-radius:999px;background:var(--label-bg);display:inline-block}
+.sign{display:inline-block;background:var(--rose);color:var(--neutral);border:1px solid var(--trim);border-radius:999px;padding:6px 20px;font-size:.9rem;letter-spacing:.24em;text-transform:uppercase}
+.orn{color:var(--trim);letter-spacing:.6em;padding-left:.6em;font-size:.95rem}
+.node{display:grid;justify-items:center;padding-block:26px}
+.node .stem{width:1px;height:28px;background:var(--trim)}
+.node .dot{width:11px;height:11px;background:var(--trim);transform:rotate(45deg);margin:6px 0}
+.node .tag{margin-top:6px;background:var(--neutral)}
+.frame{position:relative;background:var(--neutral);border:1px solid var(--trim);border-radius:14px;padding:26px 22px 28px;display:grid;gap:16px;justify-items:center}
+.frame::after{content:"";position:absolute;inset:6px;border:1px solid var(--trim);border-radius:9px;pointer-events:none}
+.frame>*{position:relative;z-index:1}
+.title{display:grid;gap:4px;justify-items:center}
+.title .small{font-size:clamp(.9rem,2.2vw,1.2rem);letter-spacing:.5em;padding-left:.5em;color:var(--rose);text-transform:uppercase;font-weight:300}
+.btn{font:inherit;font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--trim);background:var(--label-bg);color:var(--rose);cursor:pointer;border-radius:999px;text-decoration:none;display:inline-block}
+.btn:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.btn.primary,.btn[aria-pressed="true"]{background:var(--rose);color:var(--neutral)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-items:start}
+@media (max-width:620px){.pair{grid-template-columns:1fr}}
+.pair>div{display:grid;gap:8px}
+.figimg{width:100%;border:1px solid var(--trim);border-radius:10px;background:#FAF4E8;display:block}
+.quote{font-style:italic;font-size:1.05rem;max-width:62ch;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 6px;color:var(--ink);margin:0 auto;text-align:left}
+.quote .who{display:block;text-align:right;font-style:normal;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-top:6px}
+.list{display:grid;gap:8px;max-width:62ch;margin:0 auto;text-align:left}
+.list>div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
+.list>div::before{content:"✦";color:var(--trim);font-size:.8rem}
+.cab{position:relative;border:1px solid var(--trim);border-radius:12px;background:var(--label-bg);padding:14px 16px;display:grid;gap:8px;justify-items:center;width:100%}
+canvas{width:100%;height:auto;display:block;border:1px solid var(--trim);border-radius:10px;background:var(--label-bg)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%;max-width:760px}
+.stats>div{border:1px solid var(--trim);border-radius:10px;background:var(--label-bg);padding:8px 6px;display:grid;gap:2px}
+.stats b{font-weight:400;font-size:1.25rem;color:var(--rose);font-variant-numeric:tabular-nums}
+.stats small{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-warm)}
+.rungs{display:grid;gap:10px;width:100%;max-width:640px}
+.rung{font:inherit;text-align:left;border:1px solid var(--trim);border-radius:12px;background:var(--label-bg);padding:12px 16px;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;color:var(--ink)}
+.rung b{font-weight:400;color:var(--rose);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
+.rung[aria-pressed="true"]{background:var(--butter);border-color:var(--trim-dk)}
+.note{width:100%;max-width:640px;text-align:left;border:1px solid var(--trim);border-radius:12px;background:var(--neutral);padding:12px 16px;font-size:1rem;min-height:3.4em}
+.note b{font-weight:400;color:var(--rose)}
+.ask{width:100%;max-width:760px;border:1px solid var(--trim);border-radius:12px;background:var(--label-bg);padding:14px 16px;display:grid;gap:10px;justify-items:center}
+.ask .q{font-size:1.05rem;max-width:62ch}
+.ask .fb{font-size:.95rem;color:var(--ink-warm);font-style:italic;min-height:1.4em;max-width:62ch}
+.ask .fb.good{color:var(--olive)} .ask .fb.bad{color:var(--rose)}
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;width:100%}
+.word{border:1px solid var(--trim);border-radius:10px;background:var(--neutral);padding:8px;display:grid;gap:6px;justify-items:center}
+.word span{font-size:1.05rem}
+.word .pick{display:flex;gap:6px}
+.chip{font:inherit;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--trim);border-radius:999px;background:var(--label-bg);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--butter);border-color:var(--trim-dk)}
+.chip.right{background:var(--olive-lt);border-color:var(--olive)} .chip.wrong{background:var(--pink);border-color:var(--rose)}
+.ref{font-size:.85rem;color:var(--ink-warm)}
+.closing a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--trim)}
+footer{margin-top:34px;margin-inline:-16px;background:var(--pink);color:var(--rose);border-top:1px solid var(--trim);padding:18px 16px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+footer .orn{color:var(--trim-dk);letter-spacing:.5em;padding-left:.5em}
+footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--trim)}
+</style>
+
+<div class="wrap">
+
+<header class="frame" aria-label="Title">
+  <div class="title">
+    <div class="small">Causation, and quant against qual</div>
+    <h1>Big Ideas</h1>
+    <div class="orn">✦ · ✦</div>
+  </div>
+  <div class="quote">There is a lot of noise in the world … and there is a lot of idiosyncrasy. But there are also regularities and phenomena. And what the data is going to be able to do, if there's enough of it, is uncover, in the mess and the noise of the world, some lines of music that actually have harmony. It's there, somewhere.<span class="who">Esther Duflo</span></div>
+  <div class="quote">All models are wrong, some are useful.<span class="who">George E. P. Box</span></div>
+  <div class="row"><a class="btn" href="#cause">Causation</a><a class="btn" href="#ladder">The ladder</a><a class="btn" href="#objective">The causal objective</a><a class="btn" href="#qq">Quant and qual</a></div>
+</header>
+
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · Two lines that move together</span></div>
+
+<section class="frame" id="cause" aria-label="Two lines that move together">
+  <span class="sign">Correlation</span>
+  <div class="pair">
+    <div><img class="figimg" src="img/vigen1.png" alt="Annual US household spending on laundry and cleaning supplies plotted with Google searches for flights to Antarctica, 2004 to 2022, correlation 0.906"><span class="aux">tylervigen.com/spurious/correlation/1045. r = 0.906.</span></div>
+    <div><img class="figimg" src="img/vigen2.png" alt="Popularity of the first name Alanna plotted with the distance between Uranus and Venus, 1975 to 2022, correlation 0.960"><span class="aux">tylervigen.com/spurious/correlation/1528. r = 0.960.</span></div>
+  </div>
+  <div class="pair">
+    <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!<span class="who">Dr GPT</span></div>
+    <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.<span class="who">Dr GPT</span></div>
+  </div>
+  <p>A story can be written for any two lines that move together. The two above were written by a language model on request, and a reader with no knowledge of the data would find them fluent. Fluency is not evidence.</p>
+  <div class="cab">
+    <h3>Two series with nothing in common</h3>
+    <p class="aux">Each click draws two fresh series, each a random walk, generated without reference to the other. The correlation between them is reported.</p>
+    <div class="row"><button type="button" class="btn primary" id="walkBtn">Draw two unrelated series</button></div>
+    <canvas id="walk" width="1000" height="360" aria-label="Two random walks and their correlation"></canvas>
+    <div class="stats" id="walkStats"></div>
+    <p class="aux">Two series that each drift over time will often show a strong correlation with each other for no reason. Trends supply the correlation; nothing supplies the cause.</p>
+  </div>
+  <div class="cab"><h3>Correlation is not causation</h3><p>Never forget this when writing your dissertation.</p></div>
+</section>
+
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · The ladder</span></div>
+
+<section class="frame" id="ladder" aria-label="The ladder of causation">
+  <span class="sign">Three kinds of question</span>
+  <p>Pearl and Mackenzie order causal questions on three rungs. Each rung asks something the rung below cannot answer. Click a rung for the question in the form a dissertation would ask.</p>
+  <div class="rungs">
+    <button type="button" class="rung" data-r="3" aria-pressed="false"><b>III · Counterfactual</b><span>Imagining, understanding. What if I had done …?</span></button>
+    <button type="button" class="rung" data-r="2" aria-pressed="false"><b>II · Intervention</b><span>Doing, intervening. What if I do …?</span></button>
+    <button type="button" class="rung" data-r="1" aria-pressed="false"><b>I · Association</b><span>Seeing, observing. What if I see …?</span></button>
+  </div>
+  <div class="note" id="rungNote"><b>Click a rung.</b> The example runs through one question: trees on a street and the price of the houses on that street.</div>
+  <p class="ref">Pearl and Mackenzie, The Book of Why, 2018.</p>
+</section>
+
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · The causal objective</span></div>
+
+<section class="frame" id="objective" aria-label="The causal objective">
+  <span class="sign">Too important to abandon</span>
+  <div class="list">
+    <div><span>Identifying causal mechanisms is a fundamental goal of social science.</span></div>
+    <div><span>Causal claims often rely upon untestable assumptions, such as all else being equal.</span></div>
+    <div><span>Even under those assumptions, the ideal study is often inappropriate, on grounds of ethics among others.</span></div>
+    <div><span>The goal is too important to abandon.</span></div>
+  </div>
+  <span class="sign">Being explicit about the causal objective</span>
+  <div class="list">
+    <div><span>Reduces ambiguity in the research question.</span></div>
+    <div><span>Reduces errors in the data analysis.</span></div>
+    <div><span>Reduces excesses in the interpretation of results.</span></div>
+    <div><span>Invites the following, which should be expected rather than feared.</span></div>
+  </div>
+  <div class="quote">Dear author: Your observational study cannot prove causation. Please replace all references to causal effects by references to associations.<span class="who">A reviewer</span></div>
+  <div class="ask">
+    <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
+    <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:8px;max-width:62ch">
+      <button type="button" class="chip" data-v="a" style="text-align:left">Green space is associated with higher house prices across neighbourhoods.</button>
+      <button type="button" class="chip" data-v="b" style="text-align:left">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
+      <button type="button" class="chip" data-v="c" style="text-align:left">Green space raises house prices.</button>
+    </div>
+    <div class="fb" id="objF"></div>
+  </div>
+</section>
+
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Quant against qual</span></div>
+
+<section class="frame" id="qq" aria-label="Quantitative and qualitative research">
+  <span class="sign">A strong divide</span>
+  <div class="list">
+    <div><span>"Qual studies generate and value new theory."</span></div>
+    <div><span>"Quant approaches confirm existing theory and evaluate the performance of scientific institutions."</span></div>
+    <div><span>Generalisation against uniqueness.</span></div>
+    <div><span>Explanation against description.</span></div>
+    <div><span>Positivist against postmodern epistemology.</span></div>
+  </div>
+  <div class="pair">
+    <div><img class="figimg" src="img/kang1.png" alt="Evaluative dimensions ranked for qualitative and quantitative papers, with lines crossing between the two rankings"><span class="aux">Diverging evaluative dimensions. Kang and Evans, 2020.</span></div>
+    <div><img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios"><span class="aux">Probability of a word appearing in the title and abstract, quantitative against qualitative papers. Kang and Evans, 2020.</span></div>
+  </div>
+  <div class="ask">
+    <div class="q">Kang and Evans measured which words appear more often in quantitative than in qualitative papers, and the reverse. For each word, guess which side uses the word more.</div>
+    <div class="words" id="words"></div>
+    <div class="fb" id="wordF">0 of 12 answered</div>
+  </div>
+  <span class="sign">The same underlying motivation</span>
+  <p>The two camps seek the same thing. Feyerabend named the thing and then withdrew the method for reaching it.</p>
+  <div class="quote">Intellectual security in the form of clarity, precision, 'objectivity,' 'truth,' it will become clear that there is one principle … anything goes.<span class="who">Paul Feyerabend, Against Method</span></div>
+  <p class="ref">Kang and Evans, Quantitative Science Studies 2020; 1(3): 930 to 944.</p>
+</section>
+
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Next</span></div>
+
+<section class="frame" aria-label="Next page">
+  <span class="sign">Statistics</span>
+  <p>The next page begins the quantitative half with the smallest unit of the subject: a population, a sample drawn from the population, and what the sample can say about the whole.</p>
+  <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
+</section>
+
+<footer><span><a href="https://jerchenn.github.io/drds/">Home</a></span><span class="orn">✦</span><span>Big Ideas</span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/orchard/">Orchard Census</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/monty-hall/">Monty Hall</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/stata/">The Do-File</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/designs/">Five Designs</a></span></footer>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const gauss=()=>{ let u=0,v=0; while(u===0)u=Math.random(); while(v===0)v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  const mean=a=>a.reduce((s,x)=>s+x,0)/a.length;
+  const corr=(a,b)=>{ const ma=mean(a),mb=mean(b); let sab=0,saa=0,sbb=0; a.forEach((x,i)=>{ sab+=(x-ma)*(b[i]-mb); saa+=(x-ma)**2; sbb+=(b[i]-mb)**2; }); return sab/Math.sqrt(saa*sbb); };
+  const statBox=(id,items)=>{ $(id).innerHTML=items.map(([l,v])=>'<div><b>'+v+'</b><small>'+l+'</small></div>').join(''); };
+  // ---- random walks ----
+  let draws=0, strong=0;
+  function walk(){ const n=40; const a=[0],b=[0]; for(let i=1;i<n;i++){ a.push(a[i-1]+gauss()); b.push(b[i-1]+gauss()); }
+    const r=corr(a,b); draws++; if(Math.abs(r)>0.5) strong++;
+    const cv=$('walk'), ctx=cv.getContext('2d'), W=cv.width,H=cv.height, L=50,R=50,T=20,B=40; ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle='#D8C8A0'; ctx.strokeRect(L,T,W-L-R,H-T-B);
+    const X=i=>L+i/(n-1)*(W-L-R);
+    const series=(arr,col)=>{ const lo=Math.min(...arr),hi=Math.max(...arr); const Y=v=>H-B-(v-lo)/((hi-lo)||1)*(H-T-B); ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); arr.forEach((v,i)=>i?ctx.lineTo(X(i),Y(v)):ctx.moveTo(X(i),Y(v))); ctx.stroke(); };
+    series(a,'#A34860'); series(b,'#4F5D75');
+    ctx.fillStyle='#6E5140'; ctx.font='17px Cormorant Garamond, serif'; ctx.textAlign='center'; ctx.textBaseline='top'; ctx.fillText('40 periods, each series on its own scale',W/2,H-B+8);
+    ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillStyle='#A34860'; ctx.fillText('series A',L+8,T+16); ctx.fillStyle='#4F5D75'; ctx.fillText('series B',L+8,T+38);
+    statBox('walkStats',[['correlation r',r.toFixed(2)],['draws so far',draws],['draws with |r| above 0.5',strong+' of '+draws]]);
+  }
+  $('walkBtn').addEventListener('click',walk); walk();
+  // ---- ladder ----
+  const RUNG={1:'<b>Association.</b> Streets with more trees have higher house prices. The data answer this directly: a comparison across streets, a correlation, a regression coefficient.',
+              2:'<b>Intervention.</b> If the council plants trees on a street, how much do the prices on that street rise? Seeing is not enough, because the streets that already have trees differ from the others in ways that also raise prices. An answer needs a comparison in which planting was assigned for reasons unrelated to price, which is the subject of the five designs.',
+              3:'<b>Counterfactual.</b> This street was planted and its prices rose; what would its prices have been had the planting not happened? The question concerns one street in a state of the world that did not occur, so no dataset contains the answer. A model of how planting works is needed, and the answer is only as good as the model.'};
+  document.querySelectorAll('.rung').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.rung').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); $('rungNote').innerHTML=RUNG[b.dataset.r]; }));
+  // ---- causal objective ----
+  [...$('objQ').children].forEach(c=>c.addEventListener('click',()=>{ [...$('objQ').children].forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('right','wrong');}); c.setAttribute('aria-pressed','true'); const ok=c.dataset.v==='b'; c.classList.add(ok?'right':'wrong');
+    $('objF').textContent=ok?'Yes. The question is causal and says so, and the comparison is placed as evidence towards the question rather than as the answer.':(c.dataset.v==='a'?'That sentence is accurate and states no objective. A reader cannot tell what the dissertation is for.':'That sentence claims the causal result without the design to support the claim, which is what the reviewer\'s letter is about.'); $('objF').className='fb '+(ok?'good':'bad'); }));
+  // ---- words ----
+  const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['social','qual',2.47],['significant','quant',1.99],['result','quant',3.10],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
+  let answered=0, right=0;
+  WORDS.forEach(([w,side,ratio])=>{ const d=document.createElement('div'); d.className='word'; d.innerHTML='<span>'+w+'</span><div class="pick"><button type="button" class="chip" data-v="quant" aria-pressed="false">Quant</button><button type="button" class="chip" data-v="qual" aria-pressed="false">Qual</button></div>';
+    let done=false; d.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{ if(done) return; done=true; answered++; const ok=c.dataset.v===side; if(ok) right++; d.querySelectorAll('.chip').forEach(x=>{ x.setAttribute('aria-pressed',String(x===c)); if(x.dataset.v===side) x.classList.add('right'); else if(x===c) x.classList.add('wrong'); });
+      $('wordF').textContent=answered+' of 12 answered, '+right+' right. "'+w+'" is '+ratio.toFixed(2)+' times as likely in '+(side==='quant'?'quantitative':'qualitative')+' papers.'+(answered===12?' Quantitative papers compare, find, and increase; qualitative papers argue, practise, and draw.':''); $('wordF').className='fb '+(ok?'good':'bad'); })); $('words').appendChild(d); });
+})();
+</script>
+</body>
+</html>
