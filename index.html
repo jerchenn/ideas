@@ -92,6 +92,10 @@ canvas{width:100%;height:auto;display:block;border:1px solid var(--trim);border-
 .chip.long{text-align:left;font-size:1rem;line-height:1.45;padding:12px 16px;border-radius:12px;letter-spacing:0;text-transform:none}
 .chip.right{background:var(--olive-lt);border-color:var(--olive)} .chip.wrong{background:var(--pink);border-color:var(--rose)}
 .ref{font-size:.85rem;color:var(--ink-warm)}
+.camps{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:680px}
+@media (max-width:560px){.camps{grid-template-columns:1fr}}
+.camp{border:1px solid var(--trim);border-radius:12px;background:var(--label-bg);padding:14px;display:grid;gap:8px;justify-items:center}
+.camp p{font-size:1.05rem;letter-spacing:.04em}
 .closing a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--trim)}
 footer{margin-top:34px;margin-inline:-16px;background:var(--pink);color:var(--rose);border-top:1px solid var(--trim);padding:18px 16px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
 footer .orn{color:var(--trim-dk);letter-spacing:.5em;padding-left:.5em}
@@ -108,6 +112,7 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
 .wrap>section.frame:nth-of-type(5n+4){background:#E7DADF}
 .wrap>section.frame:nth-of-type(5n+0){background:#EDCBCE}
 .ucam{width:130px;display:block;margin:22px auto 0;opacity:.9}
+.credits{font-size:.72rem;color:var(--ink-warm);margin-top:18px}
 </style>
 
 <div class="wrap">
@@ -146,6 +151,7 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
 
 <section class="frame slide" aria-label="Slide 11">
   <div class="head"><h2>Correlation is not causation</h2></div>
+  <img class="figimg" src="img/cat.webp" alt="A cat lying in a pothole in the road">
   <p class="big">Correlation is not causation.</p>
   <p>Never forget this when writing your dissertation.</p>
   <div class="extra">
@@ -190,17 +196,6 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
     <div><span>But be prepared to get lots of:</span></div>
   </div>
   <div class="quote">Dear author: Your observational study cannot prove causation. Please replace all references to causal effects by references to associations.</div>
-  <div class="extra">
-        <div class="ask">
-      <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
-      <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:12px;max-width:62ch">
-        <button type="button" class="chip long" data-v="a">Green space is associated with higher house prices across neighbourhoods.</button>
-        <button type="button" class="chip long" data-v="b">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
-        <button type="button" class="chip long" data-v="c">Green space raises house prices.</button>
-      </div>
-      <div class="fb" id="objF"></div>
-    </div>
-  </div>
 </section>
 
 <div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Quant vs Qual</span></div>
@@ -238,7 +233,11 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
 
 <section class="frame slide" aria-label="Slide 18">
   <div class="head"><h2>The same underlying motivation</h2></div>
-  <p>Same underlying motivation, to seek</p>
+  <div class="camps">
+    <div class="camp"><span class="tag">Qual</span><p>theory · context · practice · uniqueness · description</p></div>
+    <div class="camp"><span class="tag">Quant</span><p>measure · result · finding · generalisation · explanation</p></div>
+  </div>
+  <p>Both camps claim the same goods: clarity, precision, objectivity, truth. Feyerabend, writing against the idea of a single scientific method, denied that any method secures them.</p>
   <div class="quote">Intellectual security in the form of clarity, precision, 'objectivity,' 'truth,' it will become clear that there is one principle … anything goes<span class="who">Paul Feyerabend, Against Method</span></div>
 </section>
 
@@ -250,6 +249,7 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
   <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
 </section>
 
+<p class="credits">Images: tylervigen.com, CC BY 4.0; Kang and Evans, 2020; cat photograph, source not recorded.</p>
 <img class="ucam" src="img/ucam.png" alt="University of Cambridge">
 
 <footer><span><a href="https://jerchenn.github.io/drds/">Home</a></span><span class="orn">✦</span><span>Big Ideas</span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/orchard/">Orchard Census</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/monty-hall/">Monty Hall</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/stata/">The Do-File</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/designs/">Five Designs</a></span><span class="made">Created with Claude Fable 5.1 · For use within the course and the University of Cambridge; not for distribution elsewhere</span></footer>
@@ -281,9 +281,6 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
               2:'<b>Intervention.</b> If the council plants trees on a street, how much do its prices rise? Streets that already have trees differ in other ways that raise prices, so the comparison across streets does not answer this. A design in which planting was assigned for reasons unrelated to price does.',
               3:'<b>Counterfactual.</b> This street was planted and its prices rose. What would its prices have been without the planting? No dataset contains that state of the world; a model is required, and the answer is only as good as the model.'};
   document.querySelectorAll('.rung').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.rung').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); $('rungNote').innerHTML=RUNG[b.dataset.r]; }));
-  // ---- causal objective ----
-  [...$('objQ').children].forEach(c=>c.addEventListener('click',()=>{ [...$('objQ').children].forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('right','wrong');}); c.setAttribute('aria-pressed','true'); const ok=c.dataset.v==='b'; c.classList.add(ok?'right':'wrong');
-    $('objF').textContent=ok?'Yes. The question is stated as causal, and the comparison is placed as evidence rather than as the answer.':(c.dataset.v==='a'?'Accurate, but no objective is stated.':'A causal claim without a design to support the claim.'); $('objF').className='fb '+(ok?'good':'bad'); }));
   $('showKang').addEventListener('click',()=>{ $('kangFig').hidden=false; $('showKang').hidden=true; });
   // ---- words ----
   const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['social','qual',2.47],['significant','quant',1.99],['result','quant',3.10],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
