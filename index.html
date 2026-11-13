@@ -217,14 +217,15 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
 
 <section class="frame slide" aria-label="Slide 17">
   <div class="head"><h2>Which words appear in titles and abstracts</h2></div>
-  <img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios">
-  <p class="aux">Probability of key word in title and abstract. Source: Kang and Evans, 2020.</p>
-  <div class="extra">
-        <div class="ask">
-      <div class="q">For each word, guess which side uses the word more.</div>
-      <div class="words" id="words"></div>
-      <div class="fb" id="wordF">0 of 12 answered</div>
-    </div>
+  <div class="ask">
+    <div class="q">Kang and Evans counted which words appear more often in quantitative papers and which in qualitative ones. For each word, guess the side that uses the word more.</div>
+    <div class="words" id="words"></div>
+    <div class="fb" id="wordF">0 of 12 answered</div>
+    <div class="row"><button type="button" class="btn" id="showKang">Show the figure</button></div>
+  </div>
+  <div id="kangFig" hidden style="display:grid;gap:8px;justify-items:center;width:100%">
+    <img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios">
+    <p class="aux">Probability of key word in title and abstract. Source: Kang and Evans, 2020.</p>
   </div>
 </section>
 
@@ -274,6 +275,7 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
   // ---- causal objective ----
   [...$('objQ').children].forEach(c=>c.addEventListener('click',()=>{ [...$('objQ').children].forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('right','wrong');}); c.setAttribute('aria-pressed','true'); const ok=c.dataset.v==='b'; c.classList.add(ok?'right':'wrong');
     $('objF').textContent=ok?'Yes. The question is stated as causal, and the comparison is placed as evidence rather than as the answer.':(c.dataset.v==='a'?'Accurate, but no objective is stated.':'A causal claim without a design to support the claim.'); $('objF').className='fb '+(ok?'good':'bad'); }));
+  $('showKang').addEventListener('click',()=>{ $('kangFig').hidden=false; $('showKang').hidden=true; });
   // ---- words ----
   const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['social','qual',2.47],['significant','quant',1.99],['result','quant',3.10],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
   let answered=0, right=0;
