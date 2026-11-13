@@ -43,16 +43,16 @@ p{margin:0 auto;max-width:62ch}
 .node .stem{width:1px;height:28px;background:var(--trim)}
 .node .dot{width:11px;height:11px;background:var(--trim);transform:rotate(45deg);margin:6px 0}
 .node .tag{margin-top:6px;background:var(--neutral)}
-.frame{position:relative;background:var(--neutral);border:1px solid var(--trim);border-radius:14px;padding:26px 22px 28px;display:grid;gap:16px;justify-items:center}
+.frame{position:relative;background:var(--neutral);border:1px solid var(--trim);border-radius:14px;padding:40px 28px 44px;display:grid;gap:24px;justify-items:center}
 .frame::after{content:"";position:absolute;inset:6px;border:1px solid var(--trim);border-radius:9px;pointer-events:none}
 .frame>*{position:relative;z-index:1}
 .title{display:grid;gap:8px;justify-items:center}
 .wrap>section.slide{margin-top:18px}
 .slide .head{display:grid;gap:8px;justify-items:center}
-.slide h2{font-size:1.5rem}
+.slide h2{font-size:1.7rem;letter-spacing:.14em}
 .slide .big{font-size:1.6rem;letter-spacing:.06em;color:var(--rose)}
 .figimg.narrow{max-width:520px}
-.extra{width:100%;max-width:760px;border-top:1px dashed var(--trim);padding-top:14px;display:grid;gap:10px;justify-items:center}
+.extra{width:100%;max-width:760px;border-top:1px solid var(--rule);padding-top:20px;margin-top:6px;display:grid;gap:12px;justify-items:center}
 .title .small{font-size:clamp(.9rem,2.2vw,1.2rem);letter-spacing:.5em;padding-left:.5em;color:var(--rose);text-transform:uppercase;font-weight:300}
 .btn{font:inherit;font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--trim);background:var(--label-bg);color:var(--rose);cursor:pointer;border-radius:999px;text-decoration:none;display:inline-block}
 .btn:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
@@ -61,10 +61,10 @@ p{margin:0 auto;max-width:62ch}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-items:start}
 @media (max-width:620px){.pair{grid-template-columns:1fr}}
 .pair>div{display:grid;gap:8px}
-.figimg{width:100%;max-width:760px;border:1px solid var(--trim);border-radius:10px;background:#FAF4E8;display:block}
-.quote{font-style:italic;font-size:1.05rem;max-width:62ch;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 6px;color:var(--ink);margin:0 auto;text-align:left}
-.quote .who{display:block;text-align:right;font-style:normal;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-top:6px}
-.list{display:grid;gap:8px;max-width:62ch;margin:0 auto;text-align:left}
+.figimg{width:100%;max-width:680px;border:1px solid var(--trim);border-radius:10px;background:#FAF4E8;display:block;padding:10px}
+.quote{font-style:italic;font-size:1.3rem;line-height:1.5;max-width:56ch;padding:6px 10px;color:var(--ink);margin:0 auto;text-align:center}
+.quote .who{display:block;text-align:center;font-style:normal;margin-top:14px;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-top:6px}
+.list{display:grid;gap:12px;max-width:56ch;margin:0 auto;text-align:left;font-size:1.15rem}
 .list>div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
 .list>div::before{content:"✦";color:var(--trim);font-size:.8rem}
 .cab{position:relative;border:1px solid var(--trim);border-radius:12px;background:var(--label-bg);padding:14px 16px;display:grid;gap:8px;justify-items:center;width:100%}
@@ -107,44 +107,42 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 
 <header class="frame" aria-label="Title">
   <div class="title">
-    <div class="small">Slides 7 to 18</div>
+    <div class="small">Causation · Quant vs Qual</div>
     <h1>Big Ideas</h1>
     <div class="orn">✦ · ✦</div>
-    <p class="aux">Causation, then quant against qual. One block per slide, in the order of the deck.</p>
   </div>
 </header>
 
 <div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation</span></div>
 
 <section class="frame slide" aria-label="Slide 7">
-  <div class="head"><span class="tag">Slide 07</span><h2>Two lines that move together</h2></div>
+  <div class="head"><h2>Two lines that move together</h2></div>
   <img class="figimg" src="img/vigen1.png" alt="Annual US household spending on laundry and cleaning supplies plotted with Google searches for flights to Antarctica, 2004 to 2022, correlation 0.906">
   <p class="aux">Annual US household spending on laundry and cleaning supplies, and Google searches for flights to Antarctica. tylervigen.com/spurious-correlations</p>
 </section>
 
 <section class="frame slide" aria-label="Slide 8">
-  <div class="head"><span class="tag">Slide 08</span><h2>Dr GPT explains it</h2></div>
+  <div class="head"><h2>Dr GPT explains it</h2></div>
   <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!<span class="who">Dr GPT</span></div>
 </section>
 
 <section class="frame slide" aria-label="Slide 9">
-  <div class="head"><span class="tag">Slide 09</span><h2>Two more lines that move together</h2></div>
+  <div class="head"><h2>Two more lines that move together</h2></div>
   <img class="figimg" src="img/vigen2.png" alt="Popularity of the first name Alanna plotted with the distance between Uranus and Venus, 1975 to 2022, correlation 0.960">
   <p class="aux">Popularity of the first name Alanna, and the distance between Uranus and Venus. tylervigen.com/spurious-correlations</p>
 </section>
 
 <section class="frame slide" aria-label="Slide 10">
-  <div class="head"><span class="tag">Slide 10</span><h2>Dr GPT explains it again</h2></div>
+  <div class="head"><h2>Dr GPT explains it again</h2></div>
   <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.<span class="who">Dr GPT</span></div>
 </section>
 
 <section class="frame slide" aria-label="Slide 11">
-  <div class="head"><span class="tag">Slide 11</span><h2>Correlation is not causation</h2></div>
+  <div class="head"><h2>Correlation is not causation</h2></div>
   <p class="big">Correlation is not causation.</p>
   <p>Never forget this when writing your dissertation.</p>
   <div class="extra">
-    <span class="tag">On the page</span>
-    <h3>Two series with nothing in common</h3>
+        <h3>Two series with nothing in common</h3>
     <p class="aux">Each click draws two fresh random walks, generated without reference to each other, and reports the correlation between them.</p>
     <div class="row"><button type="button" class="btn primary" id="walkBtn">Draw two unrelated series</button></div>
     <canvas id="walk" width="1000" height="360" aria-label="Two random walks and their correlation"></canvas>
@@ -154,7 +152,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 </section>
 
 <section class="frame slide" aria-label="Slide 12">
-  <div class="head"><span class="tag">Slide 12</span><h2>The ladder of causation</h2></div>
+  <div class="head"><h2>The ladder of causation</h2></div>
   <div class="rungs">
     <button type="button" class="rung" data-r="3" aria-pressed="false"><b>III · Counterfactual</b><span>Imagining, understanding. What if I had done …?</span></button>
     <button type="button" class="rung" data-r="2" aria-pressed="false"><b>II · Interventions</b><span>Doing, intervening. What if I do …?</span></button>
@@ -162,13 +160,12 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
   </div>
   <p class="aux">Ladder of Causation. Source: Pearl and Mackenzie, 2018.</p>
   <div class="extra">
-    <span class="tag">On the page</span>
-    <div class="note" id="rungNote"><b>Click a rung.</b> One example runs through the three: trees on a street and the price of the houses on that street.</div>
+        <div class="note" id="rungNote"><b>Click a rung.</b> One example runs through the three: trees on a street and the price of the houses on that street.</div>
   </div>
 </section>
 
 <section class="frame slide" aria-label="Slide 13">
-  <div class="head"><span class="tag">Slide 13</span><h2>Too important to abandon</h2></div>
+  <div class="head"><h2>Too important to abandon</h2></div>
   <div class="list">
     <div><span>Identifying causal mechanisms is a fundamental goal of social science.</span></div>
     <div><span>Often rely upon untestable assumptions (e.g., all else equal).</span></div>
@@ -178,7 +175,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 </section>
 
 <section class="frame slide" aria-label="Slide 14">
-  <div class="head"><span class="tag">Slide 14</span><h2>Being explicit about the causal objective</h2></div>
+  <div class="head"><h2>Being explicit about the causal objective</h2></div>
   <div class="list">
     <div><span>Reduces ambiguity in the research question.</span></div>
     <div><span>Reduces errors in the data analysis.</span></div>
@@ -187,8 +184,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
   </div>
   <div class="quote">Dear author: Your observational study cannot prove causation. Please replace all references to causal effects by references to associations.</div>
   <div class="extra">
-    <span class="tag">On the page</span>
-    <div class="ask">
+        <div class="ask">
       <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
       <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:8px;max-width:62ch">
         <button type="button" class="chip" data-v="a" style="text-align:left">Green space is associated with higher house prices across neighbourhoods.</button>
@@ -203,7 +199,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 <div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Quant vs Qual</span></div>
 
 <section class="frame slide" aria-label="Slide 15">
-  <div class="head"><span class="tag">Slide 15</span><h2>A strong divide between quant and qual scholars</h2></div>
+  <div class="head"><h2>A strong divide between quant and qual scholars</h2></div>
   <div class="list">
     <div><span>"Qual studies generate and value new theory."</span></div>
     <div><span>"Quant approaches confirm existing theory and evaluate the performance of scientific institutions."</span></div>
@@ -214,18 +210,17 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 </section>
 
 <section class="frame slide" aria-label="Slide 16">
-  <div class="head"><span class="tag">Slide 16</span><h2>Diverging evaluative dimensions</h2></div>
+  <div class="head"><h2>Diverging evaluative dimensions</h2></div>
   <img class="figimg narrow" src="img/kang1.png" alt="Evaluative dimensions ranked for qualitative and quantitative papers, with lines crossing between the two rankings">
   <p class="aux">Diverging evaluative ("good-bad") dimensions. Source: Kang and Evans, 2020.</p>
 </section>
 
 <section class="frame slide" aria-label="Slide 17">
-  <div class="head"><span class="tag">Slide 17</span><h2>Which words appear in titles and abstracts</h2></div>
+  <div class="head"><h2>Which words appear in titles and abstracts</h2></div>
   <img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios">
   <p class="aux">Probability of key word in title and abstract. Source: Kang and Evans, 2020.</p>
   <div class="extra">
-    <span class="tag">On the page</span>
-    <div class="ask">
+        <div class="ask">
       <div class="q">For each word, guess which side uses the word more.</div>
       <div class="words" id="words"></div>
       <div class="fb" id="wordF">0 of 12 answered</div>
@@ -234,7 +229,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 </section>
 
 <section class="frame slide" aria-label="Slide 18">
-  <div class="head"><span class="tag">Slide 18</span><h2>The same underlying motivation</h2></div>
+  <div class="head"><h2>The same underlying motivation</h2></div>
   <p>Same underlying motivation, to seek</p>
   <div class="quote">Intellectual security in the form of clarity, precision, 'objectivity,' 'truth,' it will become clear that there is one principle … anything goes<span class="who">Paul Feyerabend, Against Method</span></div>
 </section>
@@ -242,7 +237,7 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 <div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Next</span></div>
 
 <section class="frame" aria-label="Next page">
-  <span class="sign">Statistics · slides 19 to 26</span>
+  <span class="sign">Statistics</span>
   <p>The next page covers the statistics slides: population and sample, sampling strategies, descriptive and inferential statistics, and the three results to carry around.</p>
   <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
 </section>
@@ -292,15 +287,12 @@ html{scroll-snap-type:y proximity;scroll-padding-top:16px}
 (function(){
   const blocks=[...document.querySelectorAll('.wrap>header.frame, .wrap>section.frame')];
   if(!blocks.length) return;
-  const c=document.createElement('div'); c.className='counter'; c.setAttribute('aria-live','polite'); document.body.appendChild(c);
   const current=()=>{ let best=0,bd=1e9; blocks.forEach((b,i)=>{ const d=Math.abs(b.getBoundingClientRect().top-16); if(d<bd){bd=d;best=i;} }); return best; };
-  const show=()=>{ c.textContent=(current()+1)+' / '+blocks.length; };
   const go=i=>{ i=Math.max(0,Math.min(blocks.length-1,i)); blocks[i].scrollIntoView({behavior:'smooth',block:'start'}); };
   document.addEventListener('keydown',e=>{ const t=e.target; if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT')) return;
     if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '||e.key==='ArrowRight'){ e.preventDefault(); go(current()+1); }
     else if(e.key==='ArrowUp'||e.key==='PageUp'||e.key==='ArrowLeft'){ e.preventDefault(); go(current()-1); }
     else if(e.key==='Home'){ e.preventDefault(); go(0); } else if(e.key==='End'){ e.preventDefault(); go(blocks.length-1); } });
-  document.addEventListener('scroll',show,{passive:true}); show();
 })();
 </script>
 </body>
