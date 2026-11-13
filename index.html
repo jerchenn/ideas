@@ -89,6 +89,7 @@ canvas{width:100%;height:auto;display:block;border:1px solid var(--trim);border-
 .word .pick{display:flex;gap:6px}
 .chip{font:inherit;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--trim);border-radius:999px;background:var(--label-bg);color:var(--ink);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--butter);border-color:var(--trim-dk)}
+.chip.long{text-align:left;font-size:1rem;line-height:1.45;padding:12px 16px;border-radius:12px;letter-spacing:0;text-transform:none}
 .chip.right{background:var(--olive-lt);border-color:var(--olive)} .chip.wrong{background:var(--pink);border-color:var(--rose)}
 .ref{font-size:.85rem;color:var(--ink-warm)}
 .closing a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--trim)}
@@ -99,6 +100,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
 /* slide spacing: each block fills the window; arrow keys move between blocks */
 .wrap>header.frame,.wrap>section.frame{scroll-margin-top:16px}
 .counter{position:fixed;right:16px;bottom:16px;z-index:9;font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:6px 12px;border:1px solid var(--trim);border-radius:999px;background:var(--label-bg);color:var(--rose)}
+footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.16em;opacity:.75;margin-top:4px}
 </style>
 
 <div class="wrap">
@@ -121,7 +123,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
 
 <section class="frame slide" aria-label="Slide 8">
   <div class="head"><h2>Dr GPT explains it</h2></div>
-  <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!<span class="who">Dr GPT</span></div>
+  <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!</div>
 </section>
 
 <section class="frame slide" aria-label="Slide 9">
@@ -132,7 +134,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
 
 <section class="frame slide" aria-label="Slide 10">
   <div class="head"><h2>Dr GPT explains it again</h2></div>
-  <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.<span class="who">Dr GPT</span></div>
+  <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.</div>
 </section>
 
 <section class="frame slide" aria-label="Slide 11">
@@ -145,7 +147,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
     <div class="row"><button type="button" class="btn primary" id="walkBtn">Draw two unrelated series</button></div>
     <canvas id="walk" width="1000" height="360" aria-label="Two random walks and their correlation"></canvas>
     <div class="stats" id="walkStats"></div>
-    <p class="aux">Two trending series correlate by construction, whether or not either affects the other.</p>
+    <p class="aux">A correlation beyond 0.5 in either direction would usually be read as strong. Two trending series reach that level often, whether or not either affects the other.</p>
   </div>
 </section>
 
@@ -184,10 +186,10 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   <div class="extra">
         <div class="ask">
       <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
-      <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:8px;max-width:62ch">
-        <button type="button" class="chip" data-v="a" style="text-align:left">Green space is associated with higher house prices across neighbourhoods.</button>
-        <button type="button" class="chip" data-v="b" style="text-align:left">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
-        <button type="button" class="chip" data-v="c" style="text-align:left">Green space raises house prices.</button>
+      <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:12px;max-width:62ch">
+        <button type="button" class="chip long" data-v="a">Green space is associated with higher house prices across neighbourhoods.</button>
+        <button type="button" class="chip long" data-v="b">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
+        <button type="button" class="chip long" data-v="c">Green space raises house prices.</button>
       </div>
       <div class="fb" id="objF"></div>
     </div>
@@ -240,7 +242,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
 </section>
 
-<footer><span><a href="https://jerchenn.github.io/drds/">Home</a></span><span class="orn">✦</span><span>Big Ideas</span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/orchard/">Orchard Census</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/monty-hall/">Monty Hall</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/stata/">The Do-File</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/designs/">Five Designs</a></span></footer>
+<footer><span><a href="https://jerchenn.github.io/drds/">Home</a></span><span class="orn">✦</span><span>Big Ideas</span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/orchard/">Orchard Census</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/monty-hall/">Monty Hall</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/stata/">The Do-File</a></span><span class="orn">✦</span><span><a href="https://jerchenn.github.io/designs/">Five Designs</a></span><span class="made">Created with Claude Fable</span></footer>
 </div>
 
 <script>
@@ -261,7 +263,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
     series(a,'#A34860'); series(b,'#4F5D75');
     ctx.fillStyle='#6E5140'; ctx.font='17px Cormorant Garamond, serif'; ctx.textAlign='center'; ctx.textBaseline='top'; ctx.fillText('40 periods, each series on its own scale',W/2,H-B+8);
     ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillStyle='#A34860'; ctx.fillText('series A',L+8,T+16); ctx.fillStyle='#4F5D75'; ctx.fillText('series B',L+8,T+38);
-    statBox('walkStats',[['correlation r',r.toFixed(2)],['draws so far',draws],['draws with |r| above 0.5',strong+' of '+draws]]);
+    statBox('walkStats',[['correlation between the two',r.toFixed(2)],['draws so far',draws],['draws with a strong correlation',strong+' of '+draws]]);
   }
   $('walkBtn').addEventListener('click',walk); walk();
   // ---- ladder ----
