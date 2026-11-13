@@ -46,7 +46,13 @@ p{margin:0 auto;max-width:62ch}
 .frame{position:relative;background:var(--neutral);border:1px solid var(--trim);border-radius:14px;padding:26px 22px 28px;display:grid;gap:16px;justify-items:center}
 .frame::after{content:"";position:absolute;inset:6px;border:1px solid var(--trim);border-radius:9px;pointer-events:none}
 .frame>*{position:relative;z-index:1}
-.title{display:grid;gap:4px;justify-items:center}
+.title{display:grid;gap:8px;justify-items:center}
+.wrap>section.slide{margin-top:18px}
+.slide .head{display:grid;gap:8px;justify-items:center}
+.slide h2{font-size:1.5rem}
+.slide .big{font-size:1.6rem;letter-spacing:.06em;color:var(--rose)}
+.figimg.narrow{max-width:520px}
+.extra{width:100%;max-width:760px;border-top:1px dashed var(--trim);padding-top:14px;display:grid;gap:10px;justify-items:center}
 .title .small{font-size:clamp(.9rem,2.2vw,1.2rem);letter-spacing:.5em;padding-left:.5em;color:var(--rose);text-transform:uppercase;font-weight:300}
 .btn{font:inherit;font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--trim);background:var(--label-bg);color:var(--rose);cursor:pointer;border-radius:999px;text-decoration:none;display:inline-block}
 .btn:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
@@ -55,7 +61,7 @@ p{margin:0 auto;max-width:62ch}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-items:start}
 @media (max-width:620px){.pair{grid-template-columns:1fr}}
 .pair>div{display:grid;gap:8px}
-.figimg{width:100%;border:1px solid var(--trim);border-radius:10px;background:#FAF4E8;display:block}
+.figimg{width:100%;max-width:760px;border:1px solid var(--trim);border-radius:10px;background:#FAF4E8;display:block}
 .quote{font-style:italic;font-size:1.05rem;max-width:62ch;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 6px;color:var(--ink);margin:0 auto;text-align:left}
 .quote .who{display:block;text-align:right;font-style:normal;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-top:6px}
 .list{display:grid;gap:8px;max-width:62ch;margin:0 auto;text-align:left}
@@ -89,119 +95,155 @@ canvas{width:100%;height:auto;display:block;border:1px solid var(--trim);border-
 footer{margin-top:34px;margin-inline:-16px;background:var(--pink);color:var(--rose);border-top:1px solid var(--trim);padding:18px 16px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
 footer .orn{color:var(--trim-dk);letter-spacing:.5em;padding-left:.5em}
 footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--trim)}
+
+/* slide scrolling: each block is a snap target, arrow keys move between blocks, a counter shows the position */
+html{scroll-snap-type:y proximity;scroll-padding-top:16px}
+.wrap>header.frame,.wrap>section.frame{scroll-snap-align:start;scroll-margin-top:16px;min-height:calc(100vh - 56px);align-content:center}
+.counter{position:fixed;right:16px;bottom:16px;z-index:9;font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:6px 12px;border:1px solid var(--trim);border-radius:999px;background:var(--label-bg);color:var(--rose)}
+@media (max-width:560px){.wrap>header.frame,.wrap>section.frame{min-height:0}}
 </style>
 
 <div class="wrap">
 
 <header class="frame" aria-label="Title">
   <div class="title">
-    <div class="small">Causation, and quant against qual</div>
+    <div class="small">Slides 7 to 18</div>
     <h1>Big Ideas</h1>
     <div class="orn">✦ · ✦</div>
+    <p class="aux">Causation, then quant against qual. One block per slide, in the order of the deck.</p>
   </div>
-  <div class="quote">There is a lot of noise in the world … and there is a lot of idiosyncrasy. But there are also regularities and phenomena. And what the data is going to be able to do, if there's enough of it, is uncover, in the mess and the noise of the world, some lines of music that actually have harmony. It's there, somewhere.<span class="who">Esther Duflo</span></div>
-  <div class="quote">All models are wrong, some are useful.<span class="who">George E. P. Box</span></div>
-  <div class="row"><a class="btn" href="#cause">Causation</a><a class="btn" href="#ladder">The ladder</a><a class="btn" href="#objective">The causal objective</a><a class="btn" href="#qq">Quant and qual</a></div>
 </header>
 
-<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · Two lines that move together</span></div>
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation</span></div>
 
-<section class="frame" id="cause" aria-label="Two lines that move together">
-  <span class="sign">Correlation</span>
-  <div class="pair">
-    <div><img class="figimg" src="img/vigen1.png" alt="Annual US household spending on laundry and cleaning supplies plotted with Google searches for flights to Antarctica, 2004 to 2022, correlation 0.906"><span class="aux">tylervigen.com/spurious/correlation/1045. r = 0.906.</span></div>
-    <div><img class="figimg" src="img/vigen2.png" alt="Popularity of the first name Alanna plotted with the distance between Uranus and Venus, 1975 to 2022, correlation 0.960"><span class="aux">tylervigen.com/spurious/correlation/1528. r = 0.960.</span></div>
-  </div>
-  <div class="pair">
-    <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!<span class="who">Dr GPT</span></div>
-    <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.<span class="who">Dr GPT</span></div>
-  </div>
-  <p>A story can be written for any two lines that move together. The two above were written by a language model on request, and a reader with no knowledge of the data would find them fluent. Fluency is not evidence.</p>
-  <div class="cab">
+<section class="frame slide" aria-label="Slide 7">
+  <div class="head"><span class="tag">Slide 07</span><h2>Two lines that move together</h2></div>
+  <img class="figimg" src="img/vigen1.png" alt="Annual US household spending on laundry and cleaning supplies plotted with Google searches for flights to Antarctica, 2004 to 2022, correlation 0.906">
+  <p class="aux">Annual US household spending on laundry and cleaning supplies, and Google searches for flights to Antarctica. tylervigen.com/spurious-correlations</p>
+</section>
+
+<section class="frame slide" aria-label="Slide 8">
+  <div class="head"><span class="tag">Slide 08</span><h2>Dr GPT explains it</h2></div>
+  <div class="quote">As US households spent more on laundry and cleaning supplies, they became obsessed with achieving the freshest, cleanest scent possible. This obsession extended to wanting the ultimate fresh air experience, leading people to search for flights to Antarctica, known for its crisp, pure air. After all, if your laundry smells like a refreshing polar breeze, why not experience the real deal, right? Maybe it's time for a new marketing slogan: Antarctica: Because Freshness Matters!<span class="who">Dr GPT</span></div>
+</section>
+
+<section class="frame slide" aria-label="Slide 9">
+  <div class="head"><span class="tag">Slide 09</span><h2>Two more lines that move together</h2></div>
+  <img class="figimg" src="img/vigen2.png" alt="Popularity of the first name Alanna plotted with the distance between Uranus and Venus, 1975 to 2022, correlation 0.960">
+  <p class="aux">Popularity of the first name Alanna, and the distance between Uranus and Venus. tylervigen.com/spurious-correlations</p>
+</section>
+
+<section class="frame slide" aria-label="Slide 10">
+  <div class="head"><span class="tag">Slide 10</span><h2>Dr GPT explains it again</h2></div>
+  <div class="quote">As more and more babies were named Alanna, the collective sound frequency of their parents proudly calling out to them created small but measurable sonic waves. Over time, these waves interfered with the gravitational pull between Uranus and Venus, inadvertently nudging them slightly further apart. The Alanna Effect, as it was dubbed by baffled astronomers, led to re-evaluations of celestial mechanics and left everyone marvelling at the cosmic consequences of baby name trends.<span class="who">Dr GPT</span></div>
+</section>
+
+<section class="frame slide" aria-label="Slide 11">
+  <div class="head"><span class="tag">Slide 11</span><h2>Correlation is not causation</h2></div>
+  <p class="big">Correlation is not causation.</p>
+  <p>Never forget this when writing your dissertation.</p>
+  <div class="extra">
+    <span class="tag">On the page</span>
     <h3>Two series with nothing in common</h3>
-    <p class="aux">Each click draws two fresh series, each a random walk, generated without reference to the other. The correlation between them is reported.</p>
+    <p class="aux">Each click draws two fresh random walks, generated without reference to each other, and reports the correlation between them.</p>
     <div class="row"><button type="button" class="btn primary" id="walkBtn">Draw two unrelated series</button></div>
     <canvas id="walk" width="1000" height="360" aria-label="Two random walks and their correlation"></canvas>
     <div class="stats" id="walkStats"></div>
-    <p class="aux">Two series that each drift over time will often show a strong correlation with each other for no reason. Trends supply the correlation; nothing supplies the cause.</p>
+    <p class="aux">Two series that each drift over time will often correlate strongly for no reason. The trends supply the correlation; nothing supplies the cause.</p>
   </div>
-  <div class="cab"><h3>Correlation is not causation</h3><p>Never forget this when writing your dissertation.</p></div>
 </section>
 
-<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · The ladder</span></div>
-
-<section class="frame" id="ladder" aria-label="The ladder of causation">
-  <span class="sign">Three kinds of question</span>
-  <p>Pearl and Mackenzie order causal questions on three rungs. Each rung asks something the rung below cannot answer. Click a rung for the question in the form a dissertation would ask.</p>
+<section class="frame slide" aria-label="Slide 12">
+  <div class="head"><span class="tag">Slide 12</span><h2>The ladder of causation</h2></div>
   <div class="rungs">
     <button type="button" class="rung" data-r="3" aria-pressed="false"><b>III · Counterfactual</b><span>Imagining, understanding. What if I had done …?</span></button>
-    <button type="button" class="rung" data-r="2" aria-pressed="false"><b>II · Intervention</b><span>Doing, intervening. What if I do …?</span></button>
+    <button type="button" class="rung" data-r="2" aria-pressed="false"><b>II · Interventions</b><span>Doing, intervening. What if I do …?</span></button>
     <button type="button" class="rung" data-r="1" aria-pressed="false"><b>I · Association</b><span>Seeing, observing. What if I see …?</span></button>
   </div>
-  <div class="note" id="rungNote"><b>Click a rung.</b> The example runs through one question: trees on a street and the price of the houses on that street.</div>
-  <p class="ref">Pearl and Mackenzie, The Book of Why, 2018.</p>
+  <p class="aux">Ladder of Causation. Source: Pearl and Mackenzie, 2018.</p>
+  <div class="extra">
+    <span class="tag">On the page</span>
+    <div class="note" id="rungNote"><b>Click a rung.</b> One example runs through the three: trees on a street and the price of the houses on that street.</div>
+  </div>
 </section>
 
-<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Causation · The causal objective</span></div>
-
-<section class="frame" id="objective" aria-label="The causal objective">
-  <span class="sign">Too important to abandon</span>
+<section class="frame slide" aria-label="Slide 13">
+  <div class="head"><span class="tag">Slide 13</span><h2>Too important to abandon</h2></div>
   <div class="list">
     <div><span>Identifying causal mechanisms is a fundamental goal of social science.</span></div>
-    <div><span>Causal claims often rely upon untestable assumptions, such as all else being equal.</span></div>
-    <div><span>Even under those assumptions, the ideal study is often inappropriate, on grounds of ethics among others.</span></div>
-    <div><span>The goal is too important to abandon.</span></div>
+    <div><span>Often rely upon untestable assumptions (e.g., all else equal).</span></div>
+    <div><span>Often inappropriate even under those assumptions (e.g., ethics).</span></div>
+    <div><span>Too important to abandon.</span></div>
   </div>
-  <span class="sign">Being explicit about the causal objective</span>
+</section>
+
+<section class="frame slide" aria-label="Slide 14">
+  <div class="head"><span class="tag">Slide 14</span><h2>Being explicit about the causal objective</h2></div>
   <div class="list">
     <div><span>Reduces ambiguity in the research question.</span></div>
     <div><span>Reduces errors in the data analysis.</span></div>
-    <div><span>Reduces excesses in the interpretation of results.</span></div>
-    <div><span>Invites the following, which should be expected rather than feared.</span></div>
+    <div><span>Reduces excesses in the results interpretation.</span></div>
+    <div><span>But be prepared to get lots of:</span></div>
   </div>
-  <div class="quote">Dear author: Your observational study cannot prove causation. Please replace all references to causal effects by references to associations.<span class="who">A reviewer</span></div>
-  <div class="ask">
-    <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
-    <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:8px;max-width:62ch">
-      <button type="button" class="chip" data-v="a" style="text-align:left">Green space is associated with higher house prices across neighbourhoods.</button>
-      <button type="button" class="chip" data-v="b" style="text-align:left">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
-      <button type="button" class="chip" data-v="c" style="text-align:left">Green space raises house prices.</button>
+  <div class="quote">Dear author: Your observational study cannot prove causation. Please replace all references to causal effects by references to associations.</div>
+  <div class="extra">
+    <span class="tag">On the page</span>
+    <div class="ask">
+      <div class="q">A dissertation finds that neighbourhoods with more green space have higher house prices. Which sentence states the causal objective explicitly?</div>
+      <div class="row" id="objQ" style="flex-direction:column;align-items:stretch;gap:8px;max-width:62ch">
+        <button type="button" class="chip" data-v="a" style="text-align:left">Green space is associated with higher house prices across neighbourhoods.</button>
+        <button type="button" class="chip" data-v="b" style="text-align:left">The question is whether adding green space to a neighbourhood would raise its house prices, and the comparison across neighbourhoods is a first step towards answering that question.</button>
+        <button type="button" class="chip" data-v="c" style="text-align:left">Green space raises house prices.</button>
+      </div>
+      <div class="fb" id="objF"></div>
     </div>
-    <div class="fb" id="objF"></div>
   </div>
 </section>
 
-<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Quant against qual</span></div>
+<div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Quant vs Qual</span></div>
 
-<section class="frame" id="qq" aria-label="Quantitative and qualitative research">
-  <span class="sign">A strong divide</span>
+<section class="frame slide" aria-label="Slide 15">
+  <div class="head"><span class="tag">Slide 15</span><h2>A strong divide between quant and qual scholars</h2></div>
   <div class="list">
     <div><span>"Qual studies generate and value new theory."</span></div>
     <div><span>"Quant approaches confirm existing theory and evaluate the performance of scientific institutions."</span></div>
-    <div><span>Generalisation against uniqueness.</span></div>
-    <div><span>Explanation against description.</span></div>
-    <div><span>Positivist against postmodern epistemology.</span></div>
+    <div><span>Generalisation vs uniqueness.</span></div>
+    <div><span>Explanation vs description.</span></div>
+    <div><span>Positivist vs postmodern epistemology.</span></div>
   </div>
-  <div class="pair">
-    <div><img class="figimg" src="img/kang1.png" alt="Evaluative dimensions ranked for qualitative and quantitative papers, with lines crossing between the two rankings"><span class="aux">Diverging evaluative dimensions. Kang and Evans, 2020.</span></div>
-    <div><img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios"><span class="aux">Probability of a word appearing in the title and abstract, quantitative against qualitative papers. Kang and Evans, 2020.</span></div>
+</section>
+
+<section class="frame slide" aria-label="Slide 16">
+  <div class="head"><span class="tag">Slide 16</span><h2>Diverging evaluative dimensions</h2></div>
+  <img class="figimg narrow" src="img/kang1.png" alt="Evaluative dimensions ranked for qualitative and quantitative papers, with lines crossing between the two rankings">
+  <p class="aux">Diverging evaluative ("good-bad") dimensions. Source: Kang and Evans, 2020.</p>
+</section>
+
+<section class="frame slide" aria-label="Slide 17">
+  <div class="head"><span class="tag">Slide 17</span><h2>Which words appear in titles and abstracts</h2></div>
+  <img class="figimg" src="img/kang2.png" alt="Words more common in quantitative and in qualitative titles and abstracts, by part of speech, with ratios">
+  <p class="aux">Probability of key word in title and abstract. Source: Kang and Evans, 2020.</p>
+  <div class="extra">
+    <span class="tag">On the page</span>
+    <div class="ask">
+      <div class="q">For each word, guess which side uses the word more.</div>
+      <div class="words" id="words"></div>
+      <div class="fb" id="wordF">0 of 12 answered</div>
+    </div>
   </div>
-  <div class="ask">
-    <div class="q">Kang and Evans measured which words appear more often in quantitative than in qualitative papers, and the reverse. For each word, guess which side uses the word more.</div>
-    <div class="words" id="words"></div>
-    <div class="fb" id="wordF">0 of 12 answered</div>
-  </div>
-  <span class="sign">The same underlying motivation</span>
-  <p>The two camps seek the same thing. Feyerabend named the aim and declined to prescribe a method.</p>
-  <div class="quote">Intellectual security in the form of clarity, precision, 'objectivity,' 'truth,' it will become clear that there is one principle … anything goes.<span class="who">Paul Feyerabend, Against Method</span></div>
-  <p class="ref">Kang and Evans, Quantitative Science Studies 2020; 1(3): 930 to 944.</p>
+</section>
+
+<section class="frame slide" aria-label="Slide 18">
+  <div class="head"><span class="tag">Slide 18</span><h2>The same underlying motivation</h2></div>
+  <p>Same underlying motivation, to seek</p>
+  <div class="quote">Intellectual security in the form of clarity, precision, 'objectivity,' 'truth,' it will become clear that there is one principle … anything goes<span class="who">Paul Feyerabend, Against Method</span></div>
 </section>
 
 <div class="node"><div class="stem"></div><div class="dot"></div><span class="tag">Next</span></div>
 
 <section class="frame" aria-label="Next page">
-  <span class="sign">Statistics</span>
-  <p>The next page begins the quantitative half with the smallest unit of the subject: a population, a sample drawn from the population, and what the sample can say about the whole.</p>
+  <span class="sign">Statistics · slides 19 to 26</span>
+  <p>The next page covers the statistics slides: population and sample, sampling strategies, descriptive and inferential statistics, and the three results to carry around.</p>
   <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
 </section>
 
@@ -243,6 +285,22 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   WORDS.forEach(([w,side,ratio])=>{ const d=document.createElement('div'); d.className='word'; d.innerHTML='<span>'+w+'</span><div class="pick"><button type="button" class="chip" data-v="quant" aria-pressed="false">Quant</button><button type="button" class="chip" data-v="qual" aria-pressed="false">Qual</button></div>';
     let done=false; d.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{ if(done) return; done=true; answered++; const ok=c.dataset.v===side; if(ok) right++; d.querySelectorAll('.chip').forEach(x=>{ x.setAttribute('aria-pressed',String(x===c)); if(x.dataset.v===side) x.classList.add('right'); else if(x===c) x.classList.add('wrong'); });
       $('wordF').textContent=answered+' of 12 answered, '+right+' right. "'+w+'" is '+ratio.toFixed(2)+' times as likely in '+(side==='quant'?'quantitative':'qualitative')+' papers.'+(answered===12?' Quantitative papers compare, find, and increase; qualitative papers argue, practise, and draw.':''); $('wordF').className='fb '+(ok?'good':'bad'); })); $('words').appendChild(d); });
+})();
+</script>
+
+<script>
+(function(){
+  const blocks=[...document.querySelectorAll('.wrap>header.frame, .wrap>section.frame')];
+  if(!blocks.length) return;
+  const c=document.createElement('div'); c.className='counter'; c.setAttribute('aria-live','polite'); document.body.appendChild(c);
+  const current=()=>{ let best=0,bd=1e9; blocks.forEach((b,i)=>{ const d=Math.abs(b.getBoundingClientRect().top-16); if(d<bd){bd=d;best=i;} }); return best; };
+  const show=()=>{ c.textContent=(current()+1)+' / '+blocks.length; };
+  const go=i=>{ i=Math.max(0,Math.min(blocks.length-1,i)); blocks[i].scrollIntoView({behavior:'smooth',block:'start'}); };
+  document.addEventListener('keydown',e=>{ const t=e.target; if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT')) return;
+    if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '||e.key==='ArrowRight'){ e.preventDefault(); go(current()+1); }
+    else if(e.key==='ArrowUp'||e.key==='PageUp'||e.key==='ArrowLeft'){ e.preventDefault(); go(current()-1); }
+    else if(e.key==='Home'){ e.preventDefault(); go(0); } else if(e.key==='End'){ e.preventDefault(); go(blocks.length-1); } });
+  document.addEventListener('scroll',show,{passive:true}); show();
 })();
 </script>
 </body>
