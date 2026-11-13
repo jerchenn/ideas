@@ -141,11 +141,11 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   <p>Never forget this when writing your dissertation.</p>
   <div class="extra">
         <h3>Two series with nothing in common</h3>
-    <p class="aux">Each click draws two fresh random walks, generated without reference to each other, and reports the correlation between them.</p>
+    <p class="aux">Each click draws two independent random walks and reports their correlation.</p>
     <div class="row"><button type="button" class="btn primary" id="walkBtn">Draw two unrelated series</button></div>
     <canvas id="walk" width="1000" height="360" aria-label="Two random walks and their correlation"></canvas>
     <div class="stats" id="walkStats"></div>
-    <p class="aux">Two series that each drift over time will often correlate strongly for no reason. The trends supply the correlation; nothing supplies the cause.</p>
+    <p class="aux">Two trending series correlate by construction, whether or not either affects the other.</p>
   </div>
 </section>
 
@@ -158,7 +158,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   </div>
   <p class="aux">Ladder of Causation. Source: Pearl and Mackenzie, 2018.</p>
   <div class="extra">
-        <div class="note" id="rungNote"><b>Click a rung.</b> One example runs through the three: trees on a street and the price of the houses on that street.</div>
+        <div class="note" id="rungNote"><b>Click a rung.</b> Example: trees on a street and the price of its houses.</div>
   </div>
 </section>
 
@@ -236,7 +236,7 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
 
 <section class="frame" aria-label="Next page">
   <span class="sign">Statistics</span>
-  <p>The next page covers the statistics slides: population and sample, sampling strategies, descriptive and inferential statistics, and the three results to carry around.</p>
+  <p>Population and sample, sampling strategies, descriptive and inferential statistics, and three results to carry around.</p>
   <a class="btn primary" href="https://jerchenn.github.io/orchard/">Go to the Orchard Census</a>
 </section>
 
@@ -265,13 +265,13 @@ footer a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--tr
   }
   $('walkBtn').addEventListener('click',walk); walk();
   // ---- ladder ----
-  const RUNG={1:'<b>Association.</b> Streets with more trees have higher house prices. The data answer this directly: a comparison across streets, a correlation, a regression coefficient.',
-              2:'<b>Intervention.</b> If the council plants trees on a street, how much do the prices on that street rise? Seeing is not enough, because the streets that already have trees differ from the others in ways that also raise prices. An answer needs a comparison in which planting was assigned for reasons unrelated to price, which is the subject of the five designs.',
-              3:'<b>Counterfactual.</b> This street was planted and its prices rose; what would its prices have been had the planting not happened? The question concerns one street in a state of the world that did not occur, so no dataset contains the answer. A model of how planting works is needed, and the answer is only as good as the model.'};
+  const RUNG={1:'<b>Association.</b> Streets with more trees have higher house prices. A comparison across streets answers this directly.',
+              2:'<b>Intervention.</b> If the council plants trees on a street, how much do its prices rise? Streets that already have trees differ in other ways that raise prices, so the comparison across streets does not answer this. A design in which planting was assigned for reasons unrelated to price does.',
+              3:'<b>Counterfactual.</b> This street was planted and its prices rose. What would its prices have been without the planting? No dataset contains that state of the world; a model is required, and the answer is only as good as the model.'};
   document.querySelectorAll('.rung').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.rung').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); $('rungNote').innerHTML=RUNG[b.dataset.r]; }));
   // ---- causal objective ----
   [...$('objQ').children].forEach(c=>c.addEventListener('click',()=>{ [...$('objQ').children].forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('right','wrong');}); c.setAttribute('aria-pressed','true'); const ok=c.dataset.v==='b'; c.classList.add(ok?'right':'wrong');
-    $('objF').textContent=ok?'Yes. The question is causal and says so, and the comparison is placed as evidence towards the question rather than as the answer.':(c.dataset.v==='a'?'That sentence is accurate and states no objective. A reader cannot tell what the dissertation is for.':'That sentence claims the causal result without the design to support the claim, which is what the reviewer\'s letter is about.'); $('objF').className='fb '+(ok?'good':'bad'); }));
+    $('objF').textContent=ok?'Yes. The question is stated as causal, and the comparison is placed as evidence rather than as the answer.':(c.dataset.v==='a'?'Accurate, but no objective is stated.':'A causal claim without a design to support the claim.'); $('objF').className='fb '+(ok?'good':'bad'); }));
   // ---- words ----
   const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['social','qual',2.47],['significant','quant',1.99],['result','quant',3.10],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
   let answered=0, right=0;
