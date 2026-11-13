@@ -283,7 +283,7 @@ footer .made{flex-basis:100%;text-align:center;font-size:.62rem;letter-spacing:.
   document.querySelectorAll('.rung').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('.rung').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); $('rungNote').innerHTML=RUNG[b.dataset.r]; }));
   $('showKang').addEventListener('click',()=>{ $('kangFig').hidden=false; $('showKang').hidden=true; });
   // ---- words ----
-  const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['social','qual',2.47],['significant','quant',1.99],['result','quant',3.10],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
+  const WORDS=[['impact','quant',3.99],['practice','qual',5.09],['argue','qual',4.27],['compare','quant',2.53],['public','qual',2.32],['significant','quant',1.99],['number','quant',3.11],['way','qual',3.01],['increase','quant',2.48],['concept','qual',2.21],['most','quant',2.06],['yet','qual',2.06]];
   let answered=0, right=0;
   WORDS.forEach(([w,side,ratio])=>{ const d=document.createElement('div'); d.className='word'; d.innerHTML='<span>'+w+'</span><div class="pick"><button type="button" class="chip" data-v="quant" aria-pressed="false">Quant</button><button type="button" class="chip" data-v="qual" aria-pressed="false">Qual</button></div>';
     let done=false; d.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{ if(done) return; done=true; answered++; const ok=c.dataset.v===side; if(ok) right++; d.querySelectorAll('.chip').forEach(x=>{ x.setAttribute('aria-pressed',String(x===c)); if(x.dataset.v===side) x.classList.add('right'); else if(x===c) x.classList.add('wrong'); });
